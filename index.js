@@ -43,7 +43,7 @@ app.use(cors(corsOption));
 app.use('/',routes());
 const host =process.env.HOST || 'localhost'
 const port =process.env.PORT || 5000
-app.listen(process.env.PORT,'0.0.0.0',()=>
+app.listen(process.env.PORT,process.env.HOST,()=>
 {
     console.log(process.env.DB_URL);
     console.log(process.env.FRONTEND_URL);
