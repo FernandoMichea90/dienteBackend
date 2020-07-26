@@ -6,7 +6,7 @@ require('dotenv').config({path:'variables.env'})
 const cors =require('cors');
 const app =express()
 mongoose.Promise=global.Promise;
-mongoose.connect('mongodb://localhost/Dental',
+mongoose.connect(process.env.DB_URL,
 {
     useUnifiedTopology: true
 
