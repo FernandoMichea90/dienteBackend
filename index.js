@@ -43,7 +43,7 @@ app.use(cors(corsOption));
 app.use('/',routes());
 const host =process.env.HOST || 'localhost'
 const port =process.env.PORT || 5002
-app.listen(process.env.PORT, '0.0.0.0',()=>
+app.listen(5002, '0.0.0.0',()=>
 {
     console.log(process.env.HOST);
     console.log(process.env.PORT);
