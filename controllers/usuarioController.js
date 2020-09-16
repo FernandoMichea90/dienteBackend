@@ -12,7 +12,7 @@ exports.nuevoUsuario = async (req, res, next) => {
     try {
 
 
-        console.log(diario);
+        
         
         // almacenar el registro
         await diario.save();
@@ -26,10 +26,9 @@ exports.nuevoUsuario = async (req, res, next) => {
 
 exports.autenticarUsuario=async(req,res,next)=>{
 const {correo,password}=req.body
-console.log(correo);
+
 try{
 const usuario=await Diario.findOne({correo})
-console.log("el usuario"+usuario);
 
 if(!usuario)
 {
@@ -41,10 +40,6 @@ if(!usuario)
         if(!bcrypt.compareSync(password,usuario.password))
         {
             // si el password es correcto
-
-            console.log("estoy fuera "+password);
-            console.log("estoy fuera "+usuario.password);
-
             
             await res.status(401).json({mensaje:'Password Incorrecto'})
             next()
@@ -54,7 +49,7 @@ if(!usuario)
             
                 //password token ,firmar el correcto 
                 const id=usuario._id;
-                console.log("mostrar el id usuario "+id);
+                
                     
                 const token=jwt.sign(
                     {
@@ -88,7 +83,7 @@ exports.buscarNombreUsuario=async(req,res,next)=>
     
     const diario = await  Diario.findById(req.params.idUsuario)
 
-    console.log(diario);
+    
     
     if(!diario) {
         res.json({mensaje : 'Ese diario no existe'});

@@ -39,11 +39,11 @@ const corsOption={
     }
 
 }
-app.use(cors(corsOption));
+app.use(cors(   ));
 app.use('/',routes());
 const host =process.env.HOST || 'localhost'
 const port =process.env.PORT || 5002
-app.listen(5002, '0.0.0.0',()=>
+app.listen(port, '0.0.0.0',()=>
 {
     console.log(process.env.HOST);
     console.log(process.env.PORT);

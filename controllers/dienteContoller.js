@@ -134,6 +134,10 @@ exports.actualizarDiario = async (req, res, next) => {
         const diario = await Diario.findOneAndUpdate({ _id : req.params.idDiente }, req.body, {
             new : true
         });
+        console.log("diario");
+        
+        console.log(diario);
+        
         res.json(diario);
     } catch (error) {
         res.send(error);
